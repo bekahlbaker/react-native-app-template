@@ -9,6 +9,7 @@
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59.5",
+    "react-native-gesture-handler": "^1.2.1",
     "react-native-image-picker": "^0.28.1",
     "react-native-image-resizer": "^1.0.1",
     "react-native-sensitive-info": "^5.4.1",
