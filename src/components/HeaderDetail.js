@@ -2,7 +2,7 @@ import React from 'react';
 import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 import colors from './Global/colors';
-import Avatar from '../components/Avatar';
+import Avatar from './Avatar';
 
 export const DEVICE_WIDTH = Dimensions.get('window').width;
 
