@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { ActivityIndicator } from 'react-native';
 import SInfo from 'react-native-sensitive-info';
 import { connect } from 'react-redux';
@@ -38,7 +38,14 @@ const StyledLogoView = styled.View`
 
 class LaunchScreen extends Component {
   componentDidMount() {
-    this.attemptAutoLogin();
+    // To simulate successfull login
+    setTimeout(() => this.props.navigation.navigate('SignedIn'), 2000);
+
+    // To simulate failed login
+    // resetStack(this.props.navigation, 'SignIn', 2000);
+
+    // On live app, attempt auto login
+    // this.attemptAutoLogin();
   }
 
   componentDidUpdate(prevProps) {
