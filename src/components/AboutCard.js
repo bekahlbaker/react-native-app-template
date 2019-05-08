@@ -17,11 +17,10 @@ const StyledText = styled.Text`
   color: ${colors.mediumNeutral};
 `;
 
-export default (AboutCard = props => {
-  // console.log(props.info);
+export default (AboutCard = ({ info }) => {
   return (
     <StyledMainView>
-      {props.info.map(
+      {info.map(
         (value, index) =>
           !!value &&
           value !== ', ' &&

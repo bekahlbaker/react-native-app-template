@@ -30,24 +30,45 @@ With sticky header outside scroll
 If there are textfields on the screen, use LayoutKeyboardAvoidingView
 */
 
-const LayoutScrollView = props => (
+const LayoutScrollView = ({
+  overlay,
+  hasBar,
+  width,
+  backgroundColor,
+  inputColor,
+  value,
+  placeholder,
+  onChangeText,
+  headerTitle,
+  leftHeaderIcon,
+  leftHeaderButtonAction,
+  leftHeaderButtonTitle,
+  rightHeaderButtonAction,
+  rightHeaderButtonTitle,
+  rightHeaderIcon,
+  myRef,
+  canRefresh,
+  refreshing,
+  onRefresh,
+  children,
+}) => (
   <StyledSafeAreaView>
-    {props.overlay && <StyledOverlay />}
+    {overlay && <StyledOverlay />}
     <Header
-      hasBar={props.hasBar}
-      width={props.width}
-      backgroundColor={props.backgroundColor}
-      inputColor={props.inputColor}
-      value={props.value}
-      placeholder={props.placeholder}
-      onChangeText={props.onChangeText}
-      headerTitle={props.headerTitle}
-      leftHeaderIcon={props.leftHeaderIcon}
-      leftHeaderButtonTitle={props.leftHeaderButtonTitle}
-      rightHeaderIcon={props.rightHeaderIcon}
-      rightHeaderButtonTitle={props.rightHeaderButtonTitle}
-      leftHeaderButtonAction={props.leftHeaderButtonAction}
-      rightHeaderButtonAction={props.rightHeaderButtonAction}
+      hasBar={hasBar}
+      width={width}
+      backgroundColor={backgroundColor}
+      inputColor={inputColor}
+      value={value}
+      placeholder={placeholder}
+      onChangeText={onChangeText}
+      headerTitle={headerTitle}
+      leftHeaderIcon={leftHeaderIcon}
+      leftHeaderButtonTitle={leftHeaderButtonTitle}
+      rightHeaderIcon={rightHeaderIcon}
+      rightHeaderButtonTitle={rightHeaderButtonTitle}
+      leftHeaderButtonAction={leftHeaderButtonAction}
+      rightHeaderButtonAction={rightHeaderButtonAction}
     />
     <StyledScrollView
       showsHorizontalScrollIndicator={false}
@@ -61,17 +82,17 @@ const LayoutScrollView = props => (
       }}
       shouldPersistTaps="always"
       keyboardShouldPersistTaps="always"
-      ref={props.myRef}
+      ref={myRef}
       refreshControl={
-        props.canRefresh && (
+        canRefresh && (
           <RefreshControl
-            refreshing={props.refreshing}
-            onRefresh={() => props.onRefresh()}
+            refreshing={refreshing}
+            onRefresh={() => onRefresh()}
           />
         )
       }
     >
-      {props.children}
+      {children}
     </StyledScrollView>
   </StyledSafeAreaView>
 );

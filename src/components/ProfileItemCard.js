@@ -68,25 +68,7 @@ const inputStyles = {
   flex: 1,
 };
 
-const dateStyles = {
-  color: colors.mediumAccent,
-  fontStyle: 'normal',
-  fontWeight: '600',
-  lineHeight: 19,
-  fontSize: 14,
-  letterSpacing: -0.0984616,
-  flex: 1,
-};
-
 class ProfileItemCard extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isEditable: false,
-    };
-  }
-
   onPressIcon = () => {
     if (this.props.isMasked) {
       const el = this.refs.textfield.getElement();
@@ -122,6 +104,7 @@ class ProfileItemCard extends Component {
             ref="textfield"
           />
         )}
+
         {!this.props.isMasked && !this.props.isPicker && (
           <StyledInput
             value={this.props.value === 'null' ? null : this.props.value}

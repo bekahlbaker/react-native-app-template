@@ -85,7 +85,7 @@ export default (Header = props => {
   return (
     <StyledHeader>
       <StyledLeftButton onPress={leftHeaderButtonAction}>
-        {hasLeftIcon && <StyledIcon source={props.leftHeaderIcon} />}
+        {hasLeftIcon && <StyledIcon source={leftHeaderIcon} />}
         {leftHeaderButtonTitle !== '' && (
           <StyledButtonText>{leftHeaderButtonTitle}</StyledButtonText>
         )}
@@ -105,7 +105,7 @@ export default (Header = props => {
         <StyledHeaderTitle>{headerTitle}</StyledHeaderTitle>
       )}
       <StyledRightButton onPress={rightHeaderButtonAction}>
-        {hasRightIcon && <StyledIcon source={props.rightHeaderIcon} />}
+        {hasRightIcon && <StyledIcon source={rightHeaderIcon} />}
         {rightHeaderButtonTitle !== '' && (
           <StyledButtonText>{rightHeaderButtonTitle}</StyledButtonText>
         )}

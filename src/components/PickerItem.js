@@ -1,17 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SInfo from 'react-native-sensitive-info';
-import {
-  Modal,
-  SafeAreaView,
-  Animated,
-  Dimensions,
-  FlatList,
-  ScrollView,
-  Text,
-  View,
-} from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import styled from 'styled-components/native';
 import colors from './Global/colors';
 
@@ -94,7 +83,6 @@ class PickerItem extends Component {
   };
 
   render() {
-    // console.log('PICKER ITEM ', this.props);
     const { item, activeId, selectedId, selectOption, type } = this.props;
     return (
       <StyledOption

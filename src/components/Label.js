@@ -14,4 +14,4 @@ const StyledLabel = styled.Text`
   margin-bottom: 17;
 `;
 
-export default (Label = props => <StyledLabel>{props.text}</StyledLabel>);
+export default (Label = ({ text }) => <StyledLabel>{text}</StyledLabel>);

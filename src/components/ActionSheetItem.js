@@ -29,9 +29,9 @@ const StyledText = styled.Text`
 
 const StyledIcon = styled.Image``;
 
-export default (actionSheetItem = props => (
-  <StyledRowItem onPress={() => props.onPress()}>
-    <StyledIcon source={props.icon} />
-    <StyledText>{props.title}</StyledText>
+export default (actionSheetItem = ({ onPress, icon, title }) => (
+  <StyledRowItem onPress={() => onPress()}>
+    <StyledIcon source={icon} />
+    <StyledText>{title}</StyledText>
   </StyledRowItem>
 ));

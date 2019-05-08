@@ -24,15 +24,23 @@ const StyledInput = styled.TextInput`
   flex: 1;
 `;
 
-export default (SearchBar = props => (
-  <StyledView width={props.width} backgroundColor={props.backgroundColor}>
+export default (SearchBar = ({
+  width,
+  backgroundColor,
+  inputColor,
+  value,
+  placeholder,
+  onChangeText,
+  placeholderTextColor,
+}) => (
+  <StyledView width={width} backgroundColor={backgroundColor}>
     <StyledInput
-      inputColor={props.inputColor}
-      value={props.value}
-      placeholder={props.placeholder}
-      onChangeText={props.onChangeText}
-      placeholderTextColor={props.placeholderTextColor}
+      inputColor={inputColor}
+      value={value}
+      placeholder={placeholder}
+      onChangeText={onChangeText}
+      placeholderTextColor={placeholderTextColor}
     />
-    <Ionicons name="ios-search" size={20} color={props.inputColor} />
+    <Ionicons name="ios-search" size={20} color={inputColor} />
   </StyledView>
 ));
