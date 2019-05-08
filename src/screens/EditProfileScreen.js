@@ -15,14 +15,15 @@ import { updateUserProfile } from '../redux/actions/users.actions';
 import Avatar from '../components/Avatar';
 import Header from '../components/Header';
 import PickerModal from '../components/PickerModal';
-import ProfileItemCard from '../components/More/ProfileItemCard';
-import SectionCard from '../components/More/SectionCard';
+import ProfileItemCard from '../components/ProfileItemCard';
+import SectionCard from '../components/SectionCard';
 import colors from '../components/Global/colors';
 import Label from '../components/Label';
 import EditIconPencil from '../assets/images/EditIconPencil.png';
 import ActionSheet from '../components/ActionSheet';
 import CameraIcon from '../assets/images/CameraIcon.png';
 import PhotoLibraryIcon from '../assets/images/PhotoLibraryIcon.png';
+import stateList from '../util/data';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
@@ -74,7 +75,6 @@ const StyledEditPhotoButton = styled.TouchableOpacity`
 `;
 
 const StyledEditText = styled.Text`
-  font-family: Open Sans;
   font-style: normal;
   font-weight: 600;
   line-height: 18px;
@@ -89,7 +89,6 @@ const StyledEditText = styled.Text`
 
 const StyledOrganization = styled.Text`
   color: ${colors.mediumNeutral};
-  font-family: OpenSans-Regular;
   font-weight: 600;
   line-height: 16px;
   font-size: 12px;
@@ -98,7 +97,6 @@ const StyledOrganization = styled.Text`
 
 const StyledLabel = styled.Text`
   color: ${colors.mediumNeutral};
-  font-family: Raleway;
   font-style: normal;
   font-weight: bold;
   line-height: 14px;
@@ -111,7 +109,6 @@ const StyledLabel = styled.Text`
 
 const StyledNameTextField = styled.TextInput`
   color: ${colors.black};
-  font-family: Raleway;
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
@@ -128,7 +125,6 @@ const StyledImage = styled.Image``;
 
 const StyledEmailDisclaimer = styled.Text`
   color: ${colors.mediumNeutral};
-  font-family: Raleway;
   font-style: normal;
   font-weight: bold;
   line-height: 14px;
@@ -171,15 +167,12 @@ class EditProfileScreen extends Component {
     const formattedDate = moment
       .utc(this.state.user.date_of_birth)
       .format('MM/DD/YYYY');
-    // console.log(this.state.user.date_of_birth);
-    // console.log('FORMATTED ', formattedDate);
     this.setState({
       user: { ...this.state.user, date_of_birth: formattedDate },
     });
   };
 
   handleLeftHeaderButton = () => {
-    // console.log('Did Touch Left Button');
     this.props.navigation.pop();
   };
 
@@ -194,9 +187,6 @@ class EditProfileScreen extends Component {
     if (user.phone !== null && user.phone !== 'null' && user.phone !== '') {
       formdata.append('phone', user.phone);
     }
-    // else {
-    //   formdata.append('phone', null);
-    // }
 
     formdata.append('email', user.email);
     formdata.append('gender', user.gender);
@@ -211,9 +201,6 @@ class EditProfileScreen extends Component {
         moment(user.date_of_birth).format('YYYY-MM-DD'),
       );
     }
-    // else {
-    //   formdata.append('date_of_birth', null);
-    // }
 
     formdata.append('city', user.city);
     formdata.append('state', user.state);
@@ -226,49 +213,18 @@ class EditProfileScreen extends Component {
       });
     }
 
-    // console.log(formdata);
-    this.props.updateUserProfile(this.props.user.id, formdata);
+    // UPDATE PROFILE AND ON SUCCESS IN COMPONENT DID UDDATE, GO BACK
+    this.props.navigation.pop();
+    // this.props.updateUserProfile(this.props.user.id, formdata);
   };
 
   handleChangeFromForm = value => {
     this.setState({ user: { ...this.state.user, ...value } });
   };
 
-  // TODO: Pull out and make it's own method that returns a URI
-  handleUploadImage = () => {
-    ImagePicker.showImagePicker(imagePickerRes => {
-      if (!imagePickerRes.didCancel && !imagePickerRes.error) {
-        let isFromCamera = false;
-        if (
-          Platform.OS === 'android' &&
-          imagePickerRes.path.includes('Picture')
-        ) {
-          isFromCamera = true;
-        }
-        // console.log('Image ', imagePickerRes);
-        ImageResizer.createResizedImage(
-          imagePickerRes.uri,
-          1000,
-          800,
-          'JPEG',
-          80,
-          Platform.OS === 'android' ? (isFromCamera ? 90 : 0) : 0,
-        )
-          .then(response => {
-            // console.log('NEW IMAGE ', response);
-            this.setState({ didChooseNew: true, image: response.uri });
-          })
-          .catch(err => {
-            // console.log('ERROR UPLOADING ', err);
-          });
-      }
-    });
-  };
-
   handleUploadFromCamera = () => {
     // Launch Camera:
     ImagePicker.launchCamera(null, imagePickerRes => {
-      // Same code as in above section!
       if (!imagePickerRes.didCancel && !imagePickerRes.error) {
         let isFromCamera = false;
         if (
@@ -277,7 +233,6 @@ class EditProfileScreen extends Component {
         ) {
           isFromCamera = true;
         }
-        // console.log('Image ', imagePickerRes);
         ImageResizer.createResizedImage(
           imagePickerRes.uri,
           1000,
@@ -294,7 +249,7 @@ class EditProfileScreen extends Component {
             });
           })
           .catch(err => {
-            // console.log('ERROR UPLOADING ', err);
+            console.log('ERROR UPLOADING ', err);
           });
       }
     });
@@ -303,7 +258,6 @@ class EditProfileScreen extends Component {
   handleUploadFromGallery = () => {
     // Open Image Library:
     ImagePicker.launchImageLibrary(null, imagePickerRes => {
-      // Same code as in above section!
       if (!imagePickerRes.didCancel && !imagePickerRes.error) {
         let isFromCamera = false;
         if (
@@ -312,7 +266,6 @@ class EditProfileScreen extends Component {
         ) {
           isFromCamera = true;
         }
-        // console.log('Image ', imagePickerRes);
         ImageResizer.createResizedImage(
           imagePickerRes.uri,
           1000,
@@ -329,7 +282,7 @@ class EditProfileScreen extends Component {
             });
           })
           .catch(err => {
-            // console.log('ERROR UPLOADING ', err);
+            console.log('ERROR UPLOADING ', err);
           });
       }
     });
@@ -337,12 +290,10 @@ class EditProfileScreen extends Component {
 
   render() {
     const {
-      id,
       first_name,
       last_name,
       full_name,
       avatar_url,
-      created_at,
       date_of_birth,
       gender,
       city,
@@ -420,25 +371,13 @@ class EditProfileScreen extends Component {
                       hasError={this.state.nameHasError}
                       ref={ref => (this.nameTextField = ref)}
                     />
-                    <StyledOrganization>
-                      {`Member Since ${created_at.substring(0, 4)}`}
-                    </StyledOrganization>
+                    <StyledOrganization>Member since 2015</StyledOrganization>
                   </StyledColumnView>
                   <StyledIconView onPress={() => this.nameTextField.focus()}>
                     <StyledImage source={EditIconPencil} />
                   </StyledIconView>
                 </StyledRowView>
               </SectionCard>
-
-              {/* <ProfileItemCard
-          label="Organization"
-          value={this.props.organizations.results.name}
-          placeholder="Organization"
-          onChangeText={organization =>
-            this.handleChangeFromForm({ organization })
-          }
-          hasError={this.state.organizationHasError}
-        /> */}
 
               <StyledLabelView>
                 <Label text="About You" />

@@ -16,7 +16,6 @@ import { saveInfo } from '../util/helpers';
 import SectionCard from '../components/SectionCard';
 import SwitchCard from '../components/SwitchCard';
 import colors from '../components/Global/colors';
-import BackArrow from '../assets/images/BackArrow.png';
 import ActionSheet from '../components/ActionSheet';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
@@ -43,7 +42,6 @@ const StyledSignOutButton = styled.TouchableOpacity`
 
 const StyledSignOut = styled.Text`
   color: ${colors.darkNeutral};
-  font-family: Open Sans;
   font-style: normal;
   font-weight: 600;
   line-height: 26px;
@@ -52,19 +50,34 @@ const StyledSignOut = styled.Text`
   text-decoration: underline;
 `;
 
+const fakeNotificationKeys = {
+  comment_reaction: 'When a user likes my comment on a post',
+  new_message: 'When I receive a message from a user',
+  post_comment: 'When a user comments on my post',
+  post_reaction: 'When a user likes my post',
+};
+
 class SettingsScreen extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       notificationOptions: [],
-      notificationSettings: this.props.user.notification_names,
+      // notificationSettings: this.props.user.notification_names,
+      notificationSettings: ['post_reaction', 'new_message'],
       signOutModalVisible: false,
     };
   }
 
   componentDidMount() {
-    this.props.getAvailableNotifications();
+    // GET LIST AND MAP TO STATE
+    // this.props.getAvailableNotifications();
+
+    const output = Object.entries(fakeNotificationKeys).map(([key, value]) => ({
+      key,
+      value,
+    }));
+    this.setState({ notificationOptions: output });
   }
 
   componentDidUpdate(prevProps) {
@@ -99,7 +112,7 @@ class SettingsScreen extends Component {
   };
 
   handleSwitchChange = value => {
-    this.props.toggleNotification(this.props.user, value.key);
+    // this.props.toggleNotification(this.props.user, value.key);
   };
 
   render() {
@@ -107,8 +120,6 @@ class SettingsScreen extends Component {
       <LayoutScrollViewWithHeader
         hasBar={false}
         headerTitle="Settings"
-        leftHeaderIcon={BackArrow}
-        leftHeaderButtonAction={this.handleLeftHeaderButton}
         canRefresh={false}
       >
         {this.state.signOutModalVisible && <StyledOverlay />}

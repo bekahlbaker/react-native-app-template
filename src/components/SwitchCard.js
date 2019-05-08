@@ -15,7 +15,6 @@ const StyledListItem = styled.View`
 `;
 
 const StyledListText = styled.Text`
-  font-family: Open Sans;
   font-style: normal;
   font-weight: 600;
   line-height: 18px;

@@ -17,7 +17,6 @@ const StyledView = styled.View`
 const StyledInput = styled.TextInput`
   padding-left: 8;
   color: ${props => props.inputColor};
-  font-family: Raleway;
   font-style: normal;
   font-weight: 600;
   font-size: 13px;

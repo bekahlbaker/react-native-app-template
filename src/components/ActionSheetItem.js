@@ -22,7 +22,6 @@ const StyledRowItem = styled.TouchableOpacity`
 const StyledText = styled.Text`
   color: ${colors.darkNeutral};
   padding-left: 10;
-  font-family: OpenSans-Regular;
   font-weight: 600;
   font-size: 18px;
   letter-spacing: -0.0861539px;

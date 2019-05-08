@@ -23,7 +23,6 @@ const StyledActionSheet = styled.View`
 
 const StyledTitle = styled.Text`
   color: ${colors.black};
-  font-family: Raleway-Bold;
   line-height: 20px;
   font-size: 22px;
   letter-spacing: -0.0861539px;
@@ -33,7 +32,6 @@ const StyledTitle = styled.Text`
 `;
 
 const StyledDescription = styled.Text`
-  font-family: OpenSans-Regular;
   line-height: 26px;
   font-size: 16px;
   text-align: center;
@@ -51,7 +49,6 @@ const StyledCancelButton = styled.TouchableOpacity`
 const StyledCancel = styled.Text`
   align-self: center;
   color: ${colors.mediumAccent};
-  font-family: OpenSans-Regular;
   font-weight: 600;
   line-height: 18px;
   font-size: 18px;

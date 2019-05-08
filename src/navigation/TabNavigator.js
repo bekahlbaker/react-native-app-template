@@ -13,14 +13,9 @@ import MoreIcon from '../assets/images/MoreIcon.png';
 import MoreIconFilled from '../assets/images/MoreIconFilled.png';
 
 import MainScreen from '../screens/MainScreen';
-import SettingsScreen from '../screens/SettingsScreen';
 
-// import MainFeedStack from './MainFeedStack';
-// import MessagesStack from './MessagesStack';
+import SettingsStack from './SettingsStack';
 
-// import NotificationsScreen from '../screens/NotificationsScreen';
-// import TabBarAndroid from '../components/TabBarAndroid';
-// import MoreStack from './MoreStack';
 import colors from '../components/Global/colors';
 
 // import NotificationIndicator from '../PushNotifications/NotificationIndicator';
@@ -76,7 +71,7 @@ const TabNavigator = createBottomTabNavigator(
     //   },
     // },
     MoreTab: {
-      screen: SettingsScreen,
+      screen: SettingsStack,
       navigationOptions: {
         tabBarIcon: ({ tintColor, focused }) => (
           <StyledIcon

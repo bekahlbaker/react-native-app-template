@@ -35,14 +35,13 @@ export default (Avatar = props => {
   const { source, firstName, lastName, onSelectUser, size } = props;
   let useInitials = false;
   if (
-    source.uri ===
+    source ===
     'https://church-groups.cratebind.com/avatars/original/missing.png'
   ) {
     useInitials = true;
   }
   if (
-    source.uri ===
-    'https://church-groups.cratebind.com/logos/original/missing.png'
+    source === 'https://church-groups.cratebind.com/logos/original/missing.png'
   ) {
     useInitials = true;
   }

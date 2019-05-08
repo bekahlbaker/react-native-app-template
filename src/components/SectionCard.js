@@ -15,9 +15,7 @@ const Card = styled.View`
 `;
 
 const CardTitle = styled.Text`
-  font-family: 'Raleway';
   color: ${colors.black};
-  font-family: Raleway;
   font-style: normal;
   font-weight: bold;
   line-height: 16px;

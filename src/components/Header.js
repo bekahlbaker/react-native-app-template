@@ -20,7 +20,6 @@ export const StyledHeader = styled.View`
 `;
 
 export const StyledHeaderTitle = styled.Text`
-  font-family: Raleway-Regular;
   font-weight: bold;
   font-size: 22px;
   text-align: center;
