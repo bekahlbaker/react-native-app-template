@@ -1,9 +1,4 @@
-export const BASE_URL = `https://church-groups.cratebind.com/api/v1`;
-
-// CATEGORIES
-export const GET_ALL_CATEGORIES = (organizationId, page) =>
-  `${BASE_URL}/categories?organization_id=${organizationId}&page=${page ||
-    1}&per=20`;
+export const BASE_URL = `https://cratebind.com/api/v1`;
 
 // CONVERSATIONS
 export const GET_ALL_CONVERSATIONS = (
@@ -27,41 +22,12 @@ export const REGISTER_DEVICE = `${BASE_URL}/devices`;
 export const EDIT_DEVICE = deviceId => `${BASE_URL}/devices/${deviceId}`;
 export const DELETE_DEVICE = deviceId => `${BASE_URL}/devices/${deviceId}`;
 
-// GROUPS
-export const GET_ALL_GROUPS = (organizationId, page) =>
-  `${BASE_URL}/groups?organization_id=${organizationId}&page=${page ||
-    1}&per=20`;
-export const CREATE_GROUP = users => {
-  const param = users.map(el => `user_ids[]=${el}`).join('&');
-  return `${BASE_URL}/groups?${param}`;
-};
-export const LEAVE_GROUP = groupId => `${BASE_URL}/groups/${groupId}/leave`;
-export const ADD_TO_GROUP = groupId => `${BASE_URL}/groups/${groupId}/add_user`;
-export const REQUEST_TO_JOIN_GROUP = groupId =>
-  `${BASE_URL}/groups/${groupId}/request_to_join`;
-export const REQUEST_TO_ADD_USER_TO_GROUP = (groupId, userId) =>
-  `${BASE_URL}/groups/${groupId}/request_to_join?user_id=${userId}`;
-export const ACCEPT_REQUEST = groupId =>
-  `${BASE_URL}/groups/${groupId}/accept_to_join`;
-export const REMOVE_USER = groupId =>
-  `${BASE_URL}/groups/${groupId}/remove_user`;
-export const ASSIGN_GROUP_ADMIN = groupId =>
-  `${BASE_URL}/groups/${groupId}/toggle_group_admin`;
-export const GET_SINGLE_GROUP = groupId => `${BASE_URL}/groups/${groupId}`;
-export const EDIT_GROUP = groupId => `${BASE_URL}/groups/${groupId}`;
-
 // NOTIFICATIONS
 export const GET_ALL_NOTIFICATIONS = (userId, page) =>
   `${BASE_URL}/users/${userId}/notifications?page=${page || 1}&per=20`;
 export const GET_AVAILABLE_NOTIFICATIONS = `${BASE_URL}/notifications/available_notifications`;
 export const MARK_NOTIFICATION_READ = notifId =>
   `${BASE_URL}/notifications/${notifId}/mark_read`;
-
-// ORGANIZATIONS
-export const GET_ALL_ORGANIZATIONS = page =>
-  `${BASE_URL}/organizations?page=${page || 1}&per=20`;
-export const GET_SINGLE_ORGANIZATION = orgId =>
-  `${BASE_URL}/organizations/${orgId}`;
 
 // POSTS
 export const GET_ALL_POSTS_FROM_GROUP = (groupId, page) =>
@@ -87,10 +53,6 @@ export const DELETE_COMMENT_ON_POST = (postId, commentId) =>
 export const EDIT_COMMENT_ON_POST = (postId, commentId) =>
   `${BASE_URL}/posts/${postId}/comments/${commentId}`;
 
-// RESOURCES
-export const GET_ALL_RESOURCES = (organizationId, page) =>
-  `${BASE_URL}/resources?organization_id=${organizationId}&page=${page ||
-    1}&per=20`;
 // USERS
 export const SIGN_UP = `${BASE_URL}/users/sign_up`;
 export const SIGN_IN = `${BASE_URL}/users/sign_in`;

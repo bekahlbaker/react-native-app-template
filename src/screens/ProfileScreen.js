@@ -7,8 +7,7 @@ import Label from '../components/Label';
 import colors from '../components/Global/colors';
 import AboutCard from '../components/AboutCard';
 import SectionCard from '../components/SectionCard';
-
-import SettingsScreen from './SettingsScreen';
+import SettingsIcon from '../assets/images/SettingsIcon.png';
 
 const fakeUser = {
   id: 124,
@@ -114,7 +113,6 @@ class ProfileScreen extends Component {
 
   render() {
     const {
-      id,
       first_name,
       last_name,
       full_name,
@@ -126,7 +124,14 @@ class ProfileScreen extends Component {
       zip,
     } = this.state.user;
     return (
-      <LayoutScrollViewWithHeader headerTitle="Profile" canRefresh={false}>
+      <LayoutScrollViewWithHeader
+        headerTitle="Profile"
+        canRefresh={false}
+        rightHeaderIcon={SettingsIcon}
+        rightHeaderButtonAction={() =>
+          this.props.navigation.navigate('Settings')
+        }
+      >
         <SectionCard>
           <StyledRowView>
             <Avatar
@@ -162,8 +167,6 @@ class ProfileScreen extends Component {
             />
           </StyledInfoView>
         </SectionCard>
-
-        <SettingsScreen />
       </LayoutScrollViewWithHeader>
     );
   }

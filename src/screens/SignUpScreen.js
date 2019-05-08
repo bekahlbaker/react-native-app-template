@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import styled from 'styled-components/native';
 import { connect } from 'react-redux';
-import { resetStack } from '../util/helpers';
+import { resetStack, saveInfo } from '../util/helpers';
 import { createUser } from '../redux/actions/users.actions';
 import { setLoginType } from '../redux/actions/loginType.actions';
 import LargeButton from '../components/LargeButton';
@@ -183,15 +183,17 @@ class SignUpScreen extends Component {
           this.validateEmail(email) &&
           this.validatePassword(password)
         ) {
-          // console.log('You can log in!');
-          const credentials = {
-            first_name: firstName,
-            last_name: lastName,
-            email,
-            password,
-          };
-          this.props.createUser(credentials);
-          this.props.setLoginType('SIGN_UP_LOGIN');
+          saveInfo('token', this.state.password, this.state.email, 0);
+          this.props.navigation.navigate('SignedIn');
+          // // console.log('You can log in!');
+          // const credentials = {
+          //   first_name: firstName,
+          //   last_name: lastName,
+          //   email,
+          //   password,
+          // };
+          // this.props.createUser(credentials);
+          // this.props.setLoginType('SIGN_UP_LOGIN');
         }
       },
     );

@@ -38,14 +38,7 @@ const StyledLogoView = styled.View`
 
 class LaunchScreen extends Component {
   componentDidMount() {
-    // To simulate successfull login
-    setTimeout(() => this.props.navigation.navigate('SignedIn'), 2000);
-
-    // To simulate failed login
-    // resetStack(this.props.navigation, 'SignIn', 2000);
-
-    // On live app, attempt auto login
-    // this.attemptAutoLogin();
+    this.attemptAutoLogin();
   }
 
   componentDidUpdate(prevProps) {
@@ -69,10 +62,19 @@ class LaunchScreen extends Component {
     // Get saved information and send to signInUser endpoint
     const email = await SInfo.getItem('email', {});
     const password = await SInfo.getItem('password', {});
-    this.props.signInUser(email, password);
 
-    // Set login type of auto login
-    this.props.setLoginType('AUTO_LOGIN');
+    if (email && password) {
+      // To simulate successfull login
+      setTimeout(() => this.props.navigation.navigate('SignedIn'), 2000);
+    } else {
+      // To simulate failed login
+      resetStack(this.props.navigation, 'SignIn', 2000);
+    }
+
+    // this.props.signInUser(email, password);
+
+    // // Set login type of auto login
+    // this.props.setLoginType('AUTO_LOGIN');
   };
 
   render() {

@@ -17,6 +17,7 @@ import SectionCard from '../components/SectionCard';
 import SwitchCard from '../components/SwitchCard';
 import colors from '../components/Global/colors';
 import ActionSheet from '../components/ActionSheet';
+import BackArrow from '../assets/images/BackArrow.png';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
@@ -120,6 +121,8 @@ class SettingsScreen extends Component {
       <LayoutScrollViewWithHeader
         hasBar={false}
         headerTitle="Settings"
+        leftHeaderIcon={BackArrow}
+        leftHeaderButtonAction={() => this.props.navigation.pop()}
         canRefresh={false}
       >
         {this.state.signOutModalVisible && <StyledOverlay />}
