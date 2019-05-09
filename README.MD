@@ -18,7 +18,7 @@ For development, you will only need Node.js installed on your environement.
 
 ## Install
 
-    $ git clone https://github.com/bekahlbaker/react-native-app-template.git
+    $ git clone https://git.cratebind.com/mobile-ios/react-native-template.git
     $ cd react-native-template
     $ npm install
     $ react-native link
