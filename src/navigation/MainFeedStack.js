@@ -1,12 +1,12 @@
 import { createStackNavigator } from 'react-navigation';
 import MainFeedScreen from '../screens/MainFeedScreen';
-// import CreatePostScreen from '../screens/CreatePostScreen';
+import CreatePostScreen from '../screens/CreatePostScreen';
 import PostShow from '../screens/PostShowScreen';
 
 const MainFeedStack = createStackNavigator(
   {
     MainFeed: MainFeedScreen,
-    // CreatePost: CreatePostScreen,
+    CreatePost: CreatePostScreen,
     PostDetail: PostShow,
   },
   {
