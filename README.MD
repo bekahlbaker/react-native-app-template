@@ -69,6 +69,7 @@ Also, be sure to have `git` available in your PATH, `npm` might need it.
 ## To Use
 
 Create new project with
+
     $ react-native init [new-project-name]
 
 You do need some dependencies -
@@ -87,10 +88,10 @@ You do need some dependencies -
     12. react-native-masked-text
 
 Link up libraries
+
     $ react-native link
 
-Copy src folder over into new project.
-Replace App.js.
+#### Copy src folder over into new project & replace App.js.
 
 ## May the odds be ever in your favor.
 
