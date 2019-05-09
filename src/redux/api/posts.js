@@ -16,24 +16,9 @@ import {
 } from '../../constants/urls';
 import SInfo from 'react-native-sensitive-info';
 
-export const postsFromGroup = async (groupId, page) => {
-  const token = await SInfo.getItem('authToken', {});
-  // console.log('URL ', GET_ALL_POSTS_FROM_GROUP(groupId, page));
-  const response = await fetch(GET_ALL_POSTS_FROM_GROUP(groupId, page), {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: token,
-    },
-  });
-  // console.log(response);
-  return response.json();
-};
-
 export const postGetAll = async page => {
   const orgId = await SInfo.getItem('defaultOrgId', {});
   const token = await SInfo.getItem('authToken', {});
-  // console.log('GET POSTS URL ', GET_ALL_POSTS(parseInt(orgId)));
-  // console.log('Token ', token);
   const response = await fetch(GET_ALL_POSTS(parseInt(orgId), page), {
     headers: {
       'Content-Type': 'application/json',

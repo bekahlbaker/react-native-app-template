@@ -12,7 +12,7 @@ import HomeIconFilled from '../assets/images/HomeIconFilled.png';
 import MoreIcon from '../assets/images/MoreIcon.png';
 import MoreIconFilled from '../assets/images/MoreIconFilled.png';
 
-import MainScreen from '../screens/MainScreen';
+import MainFeedStack from './MainFeedStack';
 
 import SettingsStack from './SettingsStack';
 
@@ -29,7 +29,7 @@ const StyledIcon = styled.Image`
 const TabNavigator = createBottomTabNavigator(
   {
     MainFeedTab: {
-      screen: MainScreen,
+      screen: MainFeedStack,
       navigationOptions: {
         tabBarIcon: ({ tintColor, focused }) => (
           <StyledIcon

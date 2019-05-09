@@ -1,6 +1,6 @@
 export default (colors = {
   primary: '#52b3d9',
-  darkerBase: '#2c3e50',
+  darkerBase: '#f3f1ef',
   highlightSoftRed: '#FF7D6B',
   darkAccent: '#E05037',
   mediumAccent: '#FF674C',

@@ -183,7 +183,7 @@ class SignUpScreen extends Component {
           this.validateEmail(email) &&
           this.validatePassword(password)
         ) {
-          saveInfo('token', this.state.password, this.state.email, 0);
+          saveInfo('token', this.state.password, this.state.email, '0');
           this.props.navigation.navigate('SignedIn');
           // // console.log('You can log in!');
           // const credentials = {

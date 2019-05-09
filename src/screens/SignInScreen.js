@@ -189,7 +189,7 @@ class SignInScreen extends Component {
           });
         }
         if (this.state.email && this.state.password) {
-          saveInfo('token', this.state.password, this.state.email, 0);
+          saveInfo('token', this.state.password, this.state.email, '0');
           this.props.navigation.navigate('SignedIn');
 
           // // console.log('You can log in!');

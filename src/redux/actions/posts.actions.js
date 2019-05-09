@@ -29,68 +29,8 @@ export const EDIT_COMMENT = 'EDIT_COMMENT';
 export const DELETE_COMMENT = 'DELETE_COMMENT';
 
 // actions
-// export function getAllPostsFromGroup(user, page) {
-//   return async dispatch => {
-//     try {
-//       // For each group on user, check if active
-//       // console.log('USER ', user);
-//       const postsFromAllGroups = [];
-//       let i;
-//       for (i = 0; i < user.active_groups.length; i++) {
-//         // console.log('GROUP ', user.active_groups[i].id);
-//         if (user.active_groups[i].active) {
-//           const response = await getAllPostsFromGroup(
-//             user.active_groups[i].id,
-//             page,
-//           );
-//           console.log('POSTS RESPONSE ', response);
-//           postsFromAllGroups.push(response.id);
-//         }
-//         console.log('ALL POSTS ', postsFromAllGroups);
-//       }
-//       // If active, const response = await getAllPostsFromGroup(group.id)
-//       // Spread push response.posts to array
-//       // Dispatch to posts
-//     } catch (err) {
-//       console.log('ERROR GETTING ALL POSTS ', err);
-//     }
-//   };
-// }
-
-export function getAllPostsFromGroup(group, page) {
-  // console.log('Page', page);
-  return async dispatch => {
-    try {
-      const response = await postsFromGroup(group.id, page);
-
-      // console.log('GET ALL POSTS FROM ONE GROUP', response);
-
-      //
-
-      if (response.posts) {
-        dispatch({
-          type: POSTS,
-          payload: {
-            status: `allCompleteFromGroup ${new Date()}`,
-            results: response.posts,
-            currentPage: response.meta.current_page,
-            allPages: response.meta.total_pages,
-          },
-        });
-      } else if (response.error) {
-        dispatch({
-          type: POSTS,
-          payload: { status: 'failed', results: [] },
-        });
-      }
-    } catch (error) {
-      // console.log('Error getting posts', error);
-    }
-  };
-}
 
 export function getAllPosts(page) {
-  // console.log('Page', page);
   return async dispatch => {
     try {
       const response = await postGetAll(page);
