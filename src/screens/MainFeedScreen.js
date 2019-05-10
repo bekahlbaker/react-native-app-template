@@ -23,6 +23,8 @@ import NewPostIcon from '../assets/images/NewPostIcon.png';
 import MessageMemberIcon from '../assets/images/MessageMemberIcon.png';
 import DeleteIcon from '../assets/images/DeleteIcon.png';
 import { DEVICE_WIDTH } from '../components/Header';
+import FamilyPhoto from '../assets/images/asianjim.jpg';
+import Profile from '../assets/images/pam-beesly.jpg'
 
 const fakePosts = [
   {
@@ -33,12 +35,9 @@ const fakePosts = [
     id: 272,
     images: [
       {
-        file_medium_url:
-          'https://church-groups-staging.s3.amazonaws.com/images/files/000/000/195/medium/image.jpg?1555087958',
-        file_thumbail_url:
-          'https://church-groups-staging.s3.amazonaws.com/images/files/000/000/195/thumb/image.jpg?1555087958',
-        file_url:
-          'https://church-groups-staging.s3.amazonaws.com/images/files/000/000/195/original/image.jpg?1555087958',
+        file_medium_url: FamilyPhoto,
+        file_thumbail_url: FamilyPhoto,
+        file_url: FamilyPhoto,
         id: 195,
       },
     ],
@@ -46,8 +45,7 @@ const fakePosts = [
     title: 'Hello World!',
     updated_at: '2019-05-06T19:08:12.685Z',
     user: {
-      avatar_url:
-        'https://church-groups-staging.s3.amazonaws.com/users/avatars/000/000/084/original/Pam_Beesley.jpg?1551991792',
+      avatar_url: Profile,
       city: 'Scranton',
       created_at: '2019-02-28T16:21:31.390Z',
       date_of_birth: '1078-01-01T00:00:00.000Z',

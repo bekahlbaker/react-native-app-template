@@ -44,8 +44,8 @@ export default (ImagePreview = props => {
                 <StyledImage
                   source={
                     typeof value !== 'string'
-                      ? { uri: value.file_url }
-                      : { uri: value }
+                      ? value.file_url
+                      :  value
                   }
                 />
               </StyledImageView>

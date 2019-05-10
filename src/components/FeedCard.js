@@ -226,7 +226,7 @@ class FeedCard extends Component {
               size={32}
               firstName={first_name}
               lastName={last_name}
-              source={{ uri: avatar_url }}
+              source={ avatar_url }
               onSelectUser={() => this.props.onSelectUser(this.props.post.user)}
             />
             <StyledName>{`${full_name}`}</StyledName>

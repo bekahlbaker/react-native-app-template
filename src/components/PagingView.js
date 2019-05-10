@@ -72,9 +72,7 @@ export default (PagingView = ({
           </StyledCloseButton>
           <StyledNameRowView pointerEvents="none">
             <Avatar
-              source={{
-                uri: user.avatar_url,
-              }}
+              source={user.avatar_url}
               size={32}
               onSelectUser={() =>
                 console.log('on select user from paging view')
@@ -88,7 +86,7 @@ export default (PagingView = ({
         </StyledHeader>
         <StyledScrollView>
           {images.map((value, index) => (
-            <StyledMainImage key={index} source={{ uri: value.file_url }} />
+            <StyledMainImage key={index} source={ value.file_url } />
           ))}
         </StyledScrollView>
       </Modal>

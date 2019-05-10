@@ -346,8 +346,8 @@ class EditProfileScreen extends Component {
                       lastName={last_name}
                       source={
                         this.state.didChooseNew
-                          ? { uri: this.state.image }
-                          : { uri: avatar_url }
+                          ? this.state.image
+                          : avatar_url
                       }
                       onSelectUser={() => console.log('')}
                     />

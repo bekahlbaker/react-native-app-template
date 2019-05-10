@@ -8,18 +8,24 @@ import colors from '../components/Global/colors';
 import AboutCard from '../components/AboutCard';
 import SectionCard from '../components/SectionCard';
 import SettingsIcon from '../assets/images/SettingsIcon.png';
+import Profile from '../assets/images/pam-beesly.jpg'
 
 const fakeUser = {
-  id: 124,
-  first_name: 'Bekah',
-  last_name: 'Baker',
-  full_name: 'Bekah Baker',
-  avatar_url: 'https://unsplash.com/photos/Wx2AjoLtpcU',
-  date_of_birth: '1/15/1987',
-  gender: 'female',
-  city: 'McKinney',
-  state: 'TX',
-  zip: '75071',
+  avatar_url: Profile,
+  city: 'Scranton',
+  created_at: '2019-02-28T16:21:31.390Z',
+  date_of_birth: '1078-01-01T00:00:00.000Z',
+  email: 'pam@scc.com',
+  first_name: 'Pam',
+  full_name: 'Pam Halpert',
+  gender: 'Female',
+  id: 84,
+  is_super_admin: false,
+  last_name: 'Halpert',
+  organization_ids: [44],
+  phone: '5555555532',
+  state: 'PA',
+  zip: '18503',
 };
 
 const StyledColumnView = styled.View`
@@ -135,9 +141,7 @@ class ProfileScreen extends Component {
         <SectionCard>
           <StyledRowView>
             <Avatar
-              source={{
-                uri: avatar_url,
-              }}
+              source={avatar_url}
               size={70}
               firstName={first_name}
               lastName={last_name}

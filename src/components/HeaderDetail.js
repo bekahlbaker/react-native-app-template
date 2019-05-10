@@ -97,9 +97,7 @@ export default (HeaderDetail = props => {
             )}
             {hasRightSingleAvatar && (
               <Avatar
-                source={{
-                  uri: user.avatar_url,
-                }}
+                source={user.avatar_url}
                 size={32}
                 onSelectUser={() =>
                   props.navigation.navigate('Profile', {
@@ -112,9 +110,7 @@ export default (HeaderDetail = props => {
             )}
             {hasRightGroupAvatar && (
               <Avatar
-                source={{
-                  uri: group.logo_url,
-                }}
+                source={ group.logo_url}
                 size={46}
                 onSelectUser={() =>
                   console.log('on select user from paging view')

@@ -136,7 +136,7 @@ class CommentCard extends Component {
             size={32}
             firstName={user.first_name}
             lastName={user.last_name}
-            source={{ uri: user.avatar_url }}
+            source={ user.avatar_url }
             onSelectUser={() =>
               console.log('selected profile from comment card')
             }

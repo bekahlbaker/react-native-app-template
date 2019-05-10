@@ -60,7 +60,7 @@ export default (FeedCardMainImage = ({ images, openModal }) => {
       <StyledImageButton
         onPress={() => openModal({ images: images, index: 0 })}
       >
-        <StyledMainImage source={{ uri: images[0].file_url }} />
+        <StyledMainImage source={ images[0].file_url } />
       </StyledImageButton>
     );
   } else if (images.length === 2) {
@@ -69,12 +69,12 @@ export default (FeedCardMainImage = ({ images, openModal }) => {
         <StyledImageButton
           onPress={() => openModal({ images: images, index: 0 })}
         >
-          <StyledHalfImage source={{ uri: images[0].file_url }} />
+          <StyledHalfImage source={ images[0].file_url } />
         </StyledImageButton>
         <StyledImageButton
           onPress={() => openModal({ images: images, index: 1 })}
         >
-          <StyledHalfImage source={{ uri: images[1].file_url }} />
+          <StyledHalfImage source={ images[1].file_url } />
         </StyledImageButton>
       </StyledHalfImageRowView>
     );
@@ -84,7 +84,7 @@ export default (FeedCardMainImage = ({ images, openModal }) => {
         <StyledImageButton
           onPress={() => openModal({ images: images, index: 0 })}
         >
-          <StyledHalfImage source={{ uri: images[0].file_url }} />
+          <StyledHalfImage source={ images[0].file_url } />
         </StyledImageButton>
         <StyledImageButton
           onPress={() => openModal({ images: images, index: 1 })}
@@ -92,7 +92,7 @@ export default (FeedCardMainImage = ({ images, openModal }) => {
           <StyledHalfImageOverlay>
             <StyledOverlayCount>{`+${images.length - 2}`}</StyledOverlayCount>
           </StyledHalfImageOverlay>
-          <StyledHalfImage source={{ uri: images[1].file_url }} />
+          <StyledHalfImage source={ images[1].file_url } />
         </StyledImageButton>
       </StyledHalfImageRowView>
     );
